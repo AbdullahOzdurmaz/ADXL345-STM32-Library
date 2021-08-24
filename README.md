@@ -2,6 +2,7 @@
 For STM32 platforms
 
 SPI Configuration: 
+
 CPOL = HIGH
 
 CPHA = 2 Edge
