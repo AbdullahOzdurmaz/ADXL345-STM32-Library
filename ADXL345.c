@@ -31,11 +31,24 @@ void ADXL345_Init(SPI_HandleTypeDef *accSPI, GPIO_TypeDef *cs_GPIO_PORT, uint16_
 	//1 - 0 =  +-8g
 	//1 - 1 =  +-16g
 
-	if(g_Range == 2){data = 0x00; ADXL.multiplier_value = 0.0039;}
-	else if(g_Range == 4){data = 0x01; ADXL.multiplier_value = 0.0078;}
-	else if(g_Range == 8){data = 0x02; ADXL.multiplier_value = 0.0156;}
-	else if(g_Range == 16){data = 0x03; ADXL.multiplier_value = 0.0312;}
-
+	switch(g_Range){
+		case 2:
+			data = 0x00;
+			ADXL.multiplier_value = 0.0039;
+		break;
+		case 4:
+			data = 0x01;
+			ADXL.multiplier_value = 0.0078;
+		break;
+		case 8:
+			data = 0x02;
+			ADXL.multiplier_value = 0.0156;
+		break;
+		case 16:
+			data = 0x03;
+			ADXL.multiplier_value = 0.0312;
+		break;
+	}
 	ADXL345_Write(DATA_FORMAT, data);	//Justify = LSB
 
 	//POWER_CTL(0x2D) ----> D7=X, D6=X, LINK(D5)=0, AUTO SLEEP(D4)=0, MEASURE(D3)=1, SLEEP(D2)=0, WAKEUP(D1-D0)=0-0 ----> 00001000 = 8 = 0x08
