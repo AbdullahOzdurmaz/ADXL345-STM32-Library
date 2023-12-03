@@ -13,14 +13,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define DEV_ID 0xE5
-#define GET_DIV_ID 0x00
+#define DEV_ID      0xE5
+#define GET_DIV_ID  0x00
 
-#define OFS_X  0x1E
-#define OFS_Y  0x1F
-#define OFS_Z  0x20
+#define OFS_X       0x1E
+#define OFS_Y       0x1F
+#define OFS_Z       0x20
 
-#define POWER_CTL 0x2D
+#define POWER_CTL   0x2D
 #define DATA_FORMAT 0x31
 
 #define DATA_X0     0x32
